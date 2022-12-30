@@ -11,9 +11,9 @@ function activate(context) {
 		const activeEditor = vscode.window.activeTextEditor;
 		let selectedText = activeEditor.document.getText(activeEditor.selection);
 
-		let assignmentExp = /\$(\w+->\w+(\['?\w+'?\])?|\w+|\w+\[\]|\w+\['?\w+'?\])\s?=\s?(\$\w+->\w+(\['?\w+'?\])?|('|")\w+('|")|\d+|\$\w+(\['?\w+'?\])?)/;
-		let doubleEqualExp = /\$(\w+->\w+(\['?\w+'?\])?|\w+|\w+\[\]|\w+\['?\w+'?\])\s?==\s?(\$\w+->\w+(\['?\w+'?\])?|('|")\w+('|")|\d+|\$\w+(\['?\w+'?\])?)/;
-		let strictEqualExp = /\$(\w+->\w+(\['?\w+'?\])?|\w+|\w+\[\]|\w+\['?\w+'?\])\s?===\s?(\$\w+->\w+(\['?\w+'?\])?|('|")\w+('|")|\d+|\$\w+(\['?\w+'?\])?)/;
+		let assignmentExp = /\$(\w+->\w+(\['?(\w+)?'?\])?|\w+|\w+\[\]|\w+\['?\w+'?\])\s?=\s?(\$\w+->\w+(\['?\w+'?\])?|('|")\w+('|")|\d+|''|\$\w+(\['?\w+'?\])?)/;
+		let doubleEqualExp = /\$(\w+->\w+(\['?(\w+)?'?\])?|\w+|\w+\[\]|\w+\['?\w+'?\])\s?==\s?(\$\w+->\w+(\['?\w+'?\])?|('|")\w+('|")|\d+|''|\$\w+(\['?\w+'?\])?)/;
+		let strictEqualExp = /\$(\w+->\w+(\['?(\w+)?'?\])?|\w+|\w+\[\]|\w+\['?\w+'?\])\s?===\s?(\$\w+->\w+(\['?\w+'?\])?|('|")\w+('|")|\d+|''|\$\w+(\['?\w+'?\])?)/;
 
 		let isAssignment = assignmentExp.test(selectedText);
 		let isDoubleEqual = doubleEqualExp.test(selectedText)
